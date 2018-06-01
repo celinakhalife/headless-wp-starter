@@ -454,3 +454,177 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+
+function cptui_register_my_cpts() {
+
+	/**
+	 * Post Type: Post Labels Using CPT.
+	 */
+
+	$labels = array(
+		"name" => __( "Post Labels Using CPT", "twentysixteen" ),
+		"singular_name" => __( "Post Label", "twentysixteen" ),
+	);
+
+	$args = array(
+		"label" => __( "Post Labels Using CPT", "twentysixteen" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "post_type_slug", "with_front" => true ),
+		"query_var" => true,
+		"supports" => array( "title", "editor", "thumbnail" ),
+	);
+
+	register_post_type( "post_type_slug", $args );
+
+	/**
+	 * Post Type: Movies CPT.
+	 */
+
+	$labels = array(
+		"name" => __( "Movies CPT", "twentysixteen" ),
+		"singular_name" => __( "Movie", "twentysixteen" ),
+		"menu_name" => __( "Movies cpt", "twentysixteen" ),
+		"all_items" => __( "All Movies", "twentysixteen" ),
+		"add_new" => __( "Add New", "twentysixteen" ),
+		"add_new_item" => __( "Add New Movie", "twentysixteen" ),
+		"edit_item" => __( "Wdit Movie", "twentysixteen" ),
+		"new_item" => __( "New Movie", "twentysixteen" ),
+		"view_item" => __( "View Movie", "twentysixteen" ),
+		"view_items" => __( "View Movies", "twentysixteen" ),
+		"search_items" => __( "Search Movies", "twentysixteen" ),
+		"not_found" => __( "No Movies Found", "twentysixteen" ),
+		"not_found_in_trash" => __( "No Movies Found in Trash", "twentysixteen" ),
+		"parent_item_colon" => __( "Parent Movie", "twentysixteen" ),
+		"featured_image" => __( "Featured Movie Image", "twentysixteen" ),
+		"set_featured_image" => __( "Set Featured Movie Image", "twentysixteen" ),
+		"remove_featured_image" => __( "Remove Featured Movie Image", "twentysixteen" ),
+		"use_featured_image" => __( "Use Featured Movie Image", "twentysixteen" ),
+		"archives" => __( "Movie Archives", "twentysixteen" ),
+		"insert_into_item" => __( "Insert Into Movie", "twentysixteen" ),
+		"parent_item_colon" => __( "Parent Movie", "twentysixteen" ),
+	);
+
+	$args = array(
+		"label" => __( "Movies CPT", "twentysixteen" ),
+		"labels" => $labels,
+		"description" => "Post Type Description",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "movies_post_type",
+		"has_archive" => false,
+		"show_in_menu" => "top-level",
+		"show_in_nav_menus" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "post_movies", "with_front" => true ),
+		"query_var" => true,
+		"menu_icon" => "dashicons-smiley",
+		"supports" => array( "title", "editor", "thumbnail" ),
+	);
+
+	register_post_type( "post_movies", $args );
+
+	/**
+	 * Post Type: test_cpt.
+	 */
+
+	$labels = array(
+		"name" => __( "test_cpt", "twentysixteen" ),
+		"singular_name" => __( "test_cpt", "twentysixteen" ),
+	);
+
+	$args = array(
+		"label" => __( "test_cpt", "twentysixteen" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "test_cpt", "with_front" => true ),
+		"query_var" => true,
+		"supports" => array( "title", "editor", "thumbnail" ),
+	);
+
+	register_post_type( "test_cpt", $args );
+
+	/**
+	 * Post Type: Movies CPT.
+	 */
+
+	$labels = array(
+		"name" => __( "Movies CPT", "twentysixteen" ),
+		"singular_name" => __( "Movie", "twentysixteen" ),
+		"menu_name" => __( "Movies cpt", "twentysixteen" ),
+		"all_items" => __( "All Movies", "twentysixteen" ),
+		"add_new" => __( "Add New", "twentysixteen" ),
+		"add_new_item" => __( "Add New Movie", "twentysixteen" ),
+		"edit_item" => __( "Wdit Movie", "twentysixteen" ),
+		"new_item" => __( "New Movie", "twentysixteen" ),
+		"view_item" => __( "View Movie", "twentysixteen" ),
+		"view_items" => __( "View Movies", "twentysixteen" ),
+		"search_items" => __( "Search Movies", "twentysixteen" ),
+		"not_found" => __( "No Movies Found", "twentysixteen" ),
+		"not_found_in_trash" => __( "No Movies Found in Trash", "twentysixteen" ),
+		"parent_item_colon" => __( "Parent Movie", "twentysixteen" ),
+		"featured_image" => __( "Featured Movie Image", "twentysixteen" ),
+		"set_featured_image" => __( "Set Featured Movie Image", "twentysixteen" ),
+		"remove_featured_image" => __( "Remove Featured Movie Image", "twentysixteen" ),
+		"use_featured_image" => __( "Use Featured Movie Image", "twentysixteen" ),
+		"archives" => __( "Movie Archives", "twentysixteen" ),
+		"insert_into_item" => __( "Insert Into Movie", "twentysixteen" ),
+		"parent_item_colon" => __( "Parent Movie", "twentysixteen" ),
+	);
+
+	$args = array(
+		"label" => __( "Movies CPT", "twentysixteen" ),
+		"labels" => $labels,
+		"description" => "Post Type Description",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "movies_post_type",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "post_bla_movies", "with_front" => true ),
+		"query_var" => true,
+		"menu_icon" => "dashicons-smiley",
+		"supports" => array( "title", "editor", "thumbnail" ),
+	);
+
+	register_post_type( "post_bla_movies", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts' );
