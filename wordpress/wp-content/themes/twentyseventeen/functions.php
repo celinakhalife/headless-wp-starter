@@ -9,6 +9,12 @@
  * @since 1.0
  */
 
+
+
+// Add custom API endpoints
+require_once 'inc/api-routes.php';
+
+
 /**
  * Twenty Seventeen only works in WordPress 4.7 or later.
  */
