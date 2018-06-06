@@ -15,8 +15,8 @@ get_header(); ?>
 
 			<?php
 			while ( have_posts() ) :
-				the_post();
-
+                the_post();
+                
 				get_template_part( 'template-parts/page/content', 'page' );
 
                 $query = new WP_Query( array( 'category_name' => 'test' ) );
@@ -30,8 +30,6 @@ get_header(); ?>
                     }
                     echo '</ul>';
                 }
-
-                echo 1;
 			endwhile; // End of the loop.
 			?>
 

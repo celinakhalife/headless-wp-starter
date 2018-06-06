@@ -9,6 +9,12 @@
  * @since 1.0
  */
 
+
+
+// Add custom API endpoints
+require_once 'inc/api-routes.php';
+
+
 /**
  * Twenty Seventeen only works in WordPress 4.7 or later.
  */
@@ -616,8 +622,6 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
-
-
 
 
 function post_published_send_email( $post_id ) {
