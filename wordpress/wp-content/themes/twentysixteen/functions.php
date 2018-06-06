@@ -32,6 +32,11 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
+
+// Add custom API tutorial endpoints
+require_once 'inc/api-routes.php';
+
+
 if ( ! function_exists( 'twentysixteen_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -1023,3 +1028,5 @@ function shortcode_ui_dev_shortcode( $attr, $content, $shortcode_tag ) {
 
 	return ob_get_clean();
 }
+
+
