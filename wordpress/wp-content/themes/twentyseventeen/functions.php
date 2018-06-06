@@ -18,22 +18,9 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 }
 
 
-//register my menu
-function register_my_menu() {
-	register_nav_menu('header-menu',__( 'Header Menu' ));
-}
-add_action( 'init', 'register_my_menu' );
 
-function register_my_menus() {
-	register_nav_menus(
-	    array(
-		'header-menu' => __( 'Header Menu' ),
-		'extra-menu' => __( 'Extra Menu' )
-	    )
-	);
-}
-add_action( 'init', 'register_my_menus' );
-
+// Add custom API tutorial endpoints
+require_once 'inc/api-routes.php';
 
 
 /**
@@ -629,3 +616,19 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+
+
+
+function post_published_send_email( $post_id ) {
+
+	$post_title = get_the_title( $post_id );
+	$post_url = get_permalink( $post_id );
+	$subject = 'A post has been published';
+	$message = "A post has been published on your website:\n\n";
+	$message .= $post_title . ": " . $post_url;
+
+	// Send email to admin.
+	wp_mail( 'celina.khalife@gmail.com', $subject, $message );
+}
+add_action( 'publish_post', 'post_published_send_email' );
