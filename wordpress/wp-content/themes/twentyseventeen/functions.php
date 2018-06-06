@@ -9,12 +9,6 @@
  * @since 1.0
  */
 
-
-
-// Add custom API endpoints
-require_once 'inc/api-routes.php';
-
-
 /**
  * Twenty Seventeen only works in WordPress 4.7 or later.
  */
@@ -22,12 +16,6 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
 	return;
 }
-
-
-
-// Add custom API tutorial endpoints
-require_once 'inc/api-routes.php';
-
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -623,16 +611,18 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
+/**
+ * Custom actions
+ */
+require get_parent_theme_file_path( '/inc/actions/post-publish-actions.php' );
 
-function post_published_send_email( $post_id ) {
+/**
+ * Custom endpoints
+ */
+require get_parent_theme_file_path( '/inc/apis/register-routes.php' );
 
-	$post_title = get_the_title( $post_id );
-	$post_url = get_permalink( $post_id );
-	$subject = 'A post has been published';
-	$message = "A post has been published on your website:\n\n";
-	$message .= $post_title . ": " . $post_url;
+/**
+ * Custom post types
+ */
+require get_parent_theme_file_path( '/inc/cpt-attributes/test_cpt.php' );
 
-	// Send email to admin.
-	wp_mail( 'celina.khalife@gmail.com', $subject, $message );
-}
-add_action( 'publish_post', 'post_published_send_email' );
